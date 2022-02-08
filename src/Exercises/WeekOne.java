@@ -41,7 +41,7 @@ public class WeekOne {
 		array = arrayInput;
 		array = printTable();
 		
-		function();
+		
 	}
 	
 	//PRINT PER ROW
