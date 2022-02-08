@@ -1,17 +1,10 @@
 package Exercises;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 interface Functions {
 	static Scanner scanner = new Scanner(System.in);
@@ -79,22 +72,27 @@ interface Functions {
 	    				String str = set.getKey().toString();
 	    				String str2 = Data.getSearchInput();
 	    				int instance = 0;
+	    				
 	    				for(int i = 0; i<str.length(); i++) {
 	    					if(str.substring(i, str2.length() +i) == str2) {
-	    						instance = instance +1;
-	    						
+	    						++instance;
 	    					}
 	    				}
-	    				
-	    				
-	    				
-	    				
-	    				System.out.printf("Found %s on (%d,%d) with %d instance/s on 'Key' column", Data.getSearchInput(), Data.getTableArray().indexOf(row), setIndex, Data.getInstances()).println();
-	    				Data.setInstances(0);
+
+	    				System.out.printf("Found %s on (%d,%d) with %d instance/s on 'Key' column", Data.getSearchInput(), Data.getTableArray().indexOf(row), setIndex, instance).println();
+	    				instance = 0;
 	    			}
 
 	    			if(set.getValue().contains(Data.getSearchInput())) {
 	    				int instance = 0;
+	    				String str = set.getValue().toString();
+	    				String str2 = Data.getSearchInput();
+	    				
+	    				for(int i = 0; i<str.length(); i++) {
+	    					if(str.substring(i, str2.length() +i) == str2) {
+	    						++instance;
+	    					}
+	    				}
 	    				System.out.printf("Found %s on (%d,%d) with %d instance/s on 'Value' column", Data.getSearchInput(), Data.getTableArray().indexOf(row), setIndex, instance).println();
 	    				instance = 0;
 	    			}
@@ -118,8 +116,6 @@ interface Functions {
 	        System.out.println();
 	        SelectFunction();
 		}
-		
-
 		
 		//PRINT
 		public static void printRow(HashMap<String, String> row) {

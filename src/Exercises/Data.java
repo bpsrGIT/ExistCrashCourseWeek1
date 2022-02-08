@@ -157,7 +157,9 @@ public class Data {
     				
     			}
     			if(set.getKey().contains(getValueToReplace())) {
-    				row.replace(getNewValue(), set.getValue());
+    				String value = set.getValue();
+    				row.remove(set.getKey(), set.getValue());
+    				row.put(getNewValue(), value);
     			}
     		}
     	}
